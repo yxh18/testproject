@@ -3,6 +3,7 @@ from testing.counter import Calculator
 
 
 class TestOper:
+
     def setup_class(self):
         print("开始计算")
         self.calc = Calculator()

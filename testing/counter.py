@@ -8,4 +8,8 @@ class Calculator:
     def div(self, a, b):
         return round(a / b)
 
+    # 相减操作
+    def sub(self, a, b):
+        return a - b
+
 # print(TestAdd().div(10,5))
