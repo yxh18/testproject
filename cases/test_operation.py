@@ -20,3 +20,7 @@ class TestOper:
     @pytest.mark.parametrize('param1,param2,expect', [(10, 5, 2), (5, 5, 1)], ids=['case1', 'case2'])
     def test_div(self, param1, param2, expect):
         assert expect == self.calc.div(param1, param2)
+
+    @pytest.mark.parametrize('param1,param2,expect', [(5, 5, 0), (5, 1, 4)], ids=['case1', 'case2'])
+    def test_sub(self, param1, param2, expect):
+        assert expect == self.calc.div(param1, param2)
