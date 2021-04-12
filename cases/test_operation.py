@@ -3,23 +3,16 @@ from testing.counter import Calculator
 
 
 class TestOper:
-
-    def setup_class(self):
-        print("开始计算")
-        self.calc = Calculator()
-
-    def teardown_class(self):
-        print("计算结束")
-
     # 参数化加法
-    @pytest.mark.parametrize('param1,param2,expect', [(1, 1, 2), (2, 2, 4), (3, 3, 6)], ids=['case1', 'case2', 'case3'])
-    def test_add(self, param1, param2, expect):
-        assert expect == self.calc.add(param1, param2)
+    # @pytest.mark.parametrize('param1,param2,expect',[(1,1,2),(2,2,4)])
+    def test_add(self, initcalc_class, login):
+        assert login[2] == initcalc_class.add(login[0], login[1])
 
     # 参数化除法
-    @pytest.mark.parametrize('param1,param2,expect', [(10, 0, 2), (5, 5, 1)], ids=['case1', 'case2'])
-    def test_div(self, param1, param2, expect):
+    # @pytest.mark.parametrize('param1,param2,expect', [(10, 0, 2), (5, 5, 1)], ids=['case1', 'case2'])
+    def test_div(self, divs, initcalc_class):
         try:
-            assert expect == self.calc.div(param1, param2)
+            assert divs[2] == initcalc_class.div(divs[0], divs[1])
+            print(divs)
         except ZeroDivisionError as e:
             print("除数不能为零")
